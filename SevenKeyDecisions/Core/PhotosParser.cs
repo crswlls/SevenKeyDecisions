@@ -13,7 +13,7 @@ namespace SevenKeyDecisions.Core
             var photoInfos = new List<PhotoInfo>();
             var jtoken = JToken.Parse(json);
             
-            foreach (var photoInfo in jtoken.Take(100))
+            foreach (var photoInfo in jtoken.Take(20))
             {
                 var pinfo = JsonConvert.DeserializeObject<PhotoInfo>(photoInfo.ToString());
                 photoInfos.Add(pinfo);

@@ -8,7 +8,7 @@ namespace SevenKeyDecisions.Core
     {
         public async Task<string> GetPhotoInfos()
         {
-            return await new HttpClient().GetStringAsync("https://jsonplaceholder.typicode.com/photos");
+            return await new HttpClient().GetStringAsync("http://jsonplaceholder.typicode.com/photos");
         }
     }
 }
