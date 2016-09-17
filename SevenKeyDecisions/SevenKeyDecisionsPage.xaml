@@ -1,4 +1,20 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:SevenKeyDecisions" x:Class="SevenKeyDecisions.SevenKeyDecisionsPage">
-    <Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" />
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage x:Class="SevenKeyDecisions.SevenKeyDecisionsPage"
+             xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SevenKeyDecisions">
+    <Label HorizontalOptions="Center"
+           VerticalOptions="Start"
+           Text="My Photos" />
+    <ListView x:Name="photos" RowHeight="50">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <ContentView Padding="5">
+                        
+                    </ContentView>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
 </ContentPage>
