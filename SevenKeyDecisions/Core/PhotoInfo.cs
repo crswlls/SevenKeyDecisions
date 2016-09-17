@@ -19,5 +19,7 @@ namespace SevenKeyDecisions.Core
         
         [JsonProperty("thumbnailUrl")]
         public Uri Thumbnail { get; set; }
+        
+        public string Description => $"Album {AlbumId}";
     }
 }
