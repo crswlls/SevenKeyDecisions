@@ -11,7 +11,16 @@
             <DataTemplate>
                 <ViewCell>
                     <ContentView Padding="5">
-                        
+                        <StackLayout Orientation="Horizontal">
+                            <Image Source="{Binding Url}" />
+                            <StackLayout Orientation="Vertical">
+                                <Label FontAttributes="Bold"
+                                       FontSize="14"
+                                       LineBreakMode="TailTruncation"
+                                       Text="{Binding Title}" />
+                                <Label FontSize="11" Text="{Binding Description}" />
+                            </StackLayout>
+                        </StackLayout>
                     </ContentView>
                 </ViewCell>
             </DataTemplate>
