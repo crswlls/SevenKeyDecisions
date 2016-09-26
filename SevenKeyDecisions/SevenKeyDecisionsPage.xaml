@@ -1,8 +1,11 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage x:Class="SevenKeyDecisions.SevenKeyDecisionsPage"
              xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:SevenKeyDecisions">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness" iOS="0, 20, 0, 0" />
+    </ContentPage.Padding>
     <Label HorizontalOptions="Center"
            VerticalOptions="Start"
            Text="My Photos" />
