@@ -8,7 +8,7 @@ namespace SevenKeyDecisions
         {
             InitializeComponent ();
 
-            MainPage = new SevenKeyDecisionsPage ();
+            MainPage = new NavigationPage(new SevenKeyDecisionsPage ());
         }
 
         protected override void OnStart ()

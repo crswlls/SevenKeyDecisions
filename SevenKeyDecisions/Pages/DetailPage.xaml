@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="SevenKeyDecisions.Pages.DetailPage">
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical">
+        <Image x:Name="mainImage" />
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="About">
+                        <TextCell Text="Date Taken" Detail="Mar 20 2014" />
+                        <TextCell Text="By" Detail="@crswlls" />
+                        <TextCell Text="Views" Detail="1034" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>                
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
