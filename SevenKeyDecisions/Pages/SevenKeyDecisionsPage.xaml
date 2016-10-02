@@ -12,7 +12,7 @@
                 <ViewCell>
                     <ContentView Padding="5">
                         <StackLayout Orientation="Horizontal">
-                            <Image Source="{Binding Url}" />
+                            <local:RoundedImage Source="{Binding Url}" />
                             <StackLayout Orientation="Vertical">
                                 <Label FontAttributes="Bold"
                                        FontSize="14"
