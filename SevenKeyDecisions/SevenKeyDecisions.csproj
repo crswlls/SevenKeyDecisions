@@ -41,9 +41,6 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Core\PhotosRequester.cs" />
-    <Compile Include="Core\PhotosParser.cs" />
-    <Compile Include="Core\PhotoInfo.cs" />
     <Compile Include="Pages\SevenKeyDecisionsPage.xaml.cs">
       <DependentUpon>SevenKeyDecisionsPage.xaml</DependentUpon>
     </Compile>
@@ -51,6 +48,11 @@
       <DependentUpon>DetailPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\RoundedImage.cs" />
+    <Compile Include="Domain\Photos\Model\PhotoInfo.cs" />
+    <Compile Include="Domain\Photos\Model\PhotosParser.cs" />
+    <Compile Include="Domain\Photos\Model\PhotosRequester.cs" />
+    <Compile Include="ViewModels\PhotosViewModel.cs" />
+    <Compile Include="ViewModels\PhotoDetailsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
@@ -79,9 +81,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Core\" />
     <Folder Include="Pages\" />
     <Folder Include="Controls\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="Domain\" />
+    <Folder Include="Domain\Photos\" />
+    <Folder Include="Domain\Photos\Model\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6495\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

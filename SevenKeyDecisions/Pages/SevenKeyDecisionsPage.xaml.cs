@@ -7,29 +7,23 @@ namespace SevenKeyDecisions
 {
     public partial class SevenKeyDecisionsPage : ContentPage
     {
+		private PhotosViewModel _photosViewModel;
+
         public SevenKeyDecisionsPage ()
         {
             InitializeComponent ();
             Title = "7 Key Decisions";
+			_photosViewModel = new PhotosViewModel();
+			BindingContext = _photosViewModel;
         }
         
         protected override async void OnAppearing ()
         {
             base.OnAppearing ();
-            photos.ItemSelected += OnItemSelected;
-            
-            var photoJson = await new PhotosRequester().GetPhotoInfos().ConfigureAwait(false);
-            var photoInfos = new PhotosParser().ParsePhotos(photoJson);
-            Device.BeginInvokeOnMainThread(() => photos.ItemsSource = photoInfos);
-        }
-        
-        protected override void OnDisappearing ()
-        {
-            base.OnDisappearing();
-            photos.ItemSelected -= OnItemSelected;
+			await _photosViewModel.Initialise();
         }
 
-        private async void OnItemSelected (object sender, SelectedItemChangedEventArgs e)
+        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             var photoItem = (PhotoInfo)e.SelectedItem;
             var detailPage = new DetailPage(photoItem);

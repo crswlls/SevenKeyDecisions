@@ -6,7 +6,7 @@
     <Label HorizontalOptions="Center"
            VerticalOptions="Start"
            Text="My Photos" />
-    <ListView x:Name="photos" RowHeight="50">
+    <ListView x:Name="photos" RowHeight="50" ItemsSource="{Binding Photos}" ItemSelected="OnItemSelected">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
