@@ -1,7 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using SevenKeyDecisions.Core;
+using SevenKeyDecisions.Infrastructure;
+using Xamarin.Forms;
 
 namespace SevenKeyDecisions
 {
@@ -9,6 +12,11 @@ namespace SevenKeyDecisions
 	{
 		private PhotoInfo _thePhoto;
 		private Uri _imageUri;
+		private ICommand _emailCommand;
+
+		public string Creator => "@crswlls";
+
+		public ICommand EmailCommand => _emailCommand ?? (_emailCommand = new Command(OnSendEmail));
 
 		public Uri ImageUri
 		{
@@ -22,7 +30,7 @@ namespace SevenKeyDecisions
 				if (_imageUri != value)
 				{
 					_imageUri = value;
-					PropertyChanged(this, new PropertyChangedEventArgs(nameof(ImageUri)));
+					PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(ImageUri)));
 				}
 			}
 		}
@@ -33,6 +41,11 @@ namespace SevenKeyDecisions
 		{
 			_thePhoto = photo;
 			ImageUri = photo.Url;
+		}
+
+		private void OnSendEmail(object obj)
+		{
+			//// EmailSender.SendMessage(Creator, $"About Your Photo ({_thePhoto.Id})", "Sent from Photos App");
 		}
 	}
 }

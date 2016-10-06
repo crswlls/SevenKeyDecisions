@@ -9,6 +9,9 @@
                         <TextCell Text="Date Taken" Detail="Mar 20 2014" />
                         <TextCell Text="By" Detail="@crswlls" />
                         <TextCell Text="Views" Detail="1034" />
+						<ViewCell>
+	                        <Button Command="{Binding EmailCommand}" Text="Contact" /> 
+						</ViewCell>
                     </TableSection>
                 </TableRoot>
             </TableView>                
