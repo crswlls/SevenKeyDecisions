@@ -39,7 +39,9 @@ namespace SevenKeyDecisions
 			SimpleIoc.Default.Register<INavigationService>(() => nav);
 			nav.Configure(nameof(PhotoDetailsViewModel), typeof(DetailPage));
 			nav.Configure(nameof(PhotosViewModel), typeof(SevenKeyDecisionsPage));
-			MainPage = new NavigationPage(new SevenKeyDecisionsPage());
+			var page = new NavigationPage(new SevenKeyDecisionsPage());
+			nav.Initialize(page);
+			MainPage = page;
 		}
     }
 }

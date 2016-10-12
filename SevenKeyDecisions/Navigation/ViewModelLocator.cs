@@ -4,7 +4,7 @@ using Microsoft.Practices.ServiceLocation;
 
 namespace SevenKeyDecisions.Navigation
 {
-	internal class ViewModelLocator
+	internal static class ViewModelLocator
 	{
 		static ViewModelLocator()
 		{
@@ -13,7 +13,7 @@ namespace SevenKeyDecisions.Navigation
 			SimpleIoc.Default.Register<PhotoDetailsViewModel>();
 		}
 
-		public T GetViewModel<T>() where T : class
+		public static T GetViewModel<T>() where T : class
 		{
 			return ServiceLocator.Current.GetInstance<T>();
 		}
