@@ -14,7 +14,7 @@ namespace SevenKeyDecisions.iOS
         {
             global::Xamarin.Forms.Forms.Init ();
 
-            LoadApplication (new App ());
+            LoadApplication(new iOSApp());
 
             return base.FinishedLaunching (app, options);
         }
