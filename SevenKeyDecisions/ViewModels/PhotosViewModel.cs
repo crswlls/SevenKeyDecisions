@@ -1,13 +1,25 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using GalaSoft.MvvmLight.Views;
 using SevenKeyDecisions.Core;
+using Xamarin.Forms;
 
 namespace SevenKeyDecisions
 {
 	public class PhotosViewModel
 	{
+		private Command<PhotoInfo> _photoSelectedCommand;
+		private INavigationService _nav;
+
+		public PhotosViewModel(INavigationService navigation)
+		{
+			_nav = navigation;
+		}
+
 		public ObservableCollection<PhotoInfo> Photos { get; } = new ObservableCollection<PhotoInfo>();
+
+		public Command<PhotoInfo> PhotoSelectedCommand => _photoSelectedCommand ?? (_photoSelectedCommand = new Command<PhotoInfo>(OnPhotoSelected));
 
 		public async Task Initialise()
 		{
@@ -21,6 +33,11 @@ namespace SevenKeyDecisions
 					Photos.Add(photos);
 				}
 			}
+		}
+
+		private void OnPhotoSelected(PhotoInfo photoInfo)
+		{
+			_nav.NavigateTo(nameof(PhotoDetailsViewModel), photoInfo);
 		}
 	}
 }

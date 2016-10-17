@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using SevenKeyDecisions.Core;
+using SevenKeyDecisions.Navigation;
 using SevenKeyDecisions.Pages;
 using Xamarin.Forms;
 
@@ -7,13 +8,12 @@ namespace SevenKeyDecisions
 {
     public partial class SevenKeyDecisionsPage : ContentPage
     {
-		private PhotosViewModel _photosViewModel;
+		private PhotosViewModel _photosViewModel = ViewModelLocator.GetViewModel<PhotosViewModel>();
 
         public SevenKeyDecisionsPage ()
         {
             InitializeComponent ();
             Title = "7 Key Decisions";
-			_photosViewModel = new PhotosViewModel();
 			BindingContext = _photosViewModel;
         }
         
@@ -25,9 +25,7 @@ namespace SevenKeyDecisions
 
         private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            var photoItem = (PhotoInfo)e.SelectedItem;
-            var detailPage = new DetailPage(photoItem);
-            await Navigation.PushAsync(detailPage);
+			_photosViewModel.PhotoSelectedCommand.Execute(e.SelectedItem);
         }
     }
 }

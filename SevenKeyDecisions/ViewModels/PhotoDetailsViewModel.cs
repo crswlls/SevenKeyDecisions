@@ -10,6 +10,13 @@ namespace SevenKeyDecisions
 {
 	public class PhotoDetailsViewModel : INotifyPropertyChanged
 	{
+		private IEmailSender _emailSender;
+
+		public PhotoDetailsViewModel(IEmailSender emailSender)
+		{
+			_emailSender = emailSender;
+		}
+
 		private PhotoInfo _thePhoto;
 		private Uri _imageUri;
 		private ICommand _emailCommand;
@@ -45,7 +52,7 @@ namespace SevenKeyDecisions
 
 		private void OnSendEmail(object obj)
 		{
-			//// EmailSender.SendMessage(Creator, $"About Your Photo ({_thePhoto.Id})", "Sent from Photos App");
+			_emailSender.SendMessage(Creator, $"About Your Photo ({_thePhoto.Id})", "Sent from Photos App");
 		}
 	}
 }

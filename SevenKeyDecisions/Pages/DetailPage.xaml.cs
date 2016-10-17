@@ -1,4 +1,5 @@
 ﻿using SevenKeyDecisions.Core;
+using SevenKeyDecisions.Navigation;
 using Xamarin.Forms;
 
 namespace SevenKeyDecisions.Pages
@@ -6,14 +7,13 @@ namespace SevenKeyDecisions.Pages
 	public partial class DetailPage : ContentPage
     {
         private PhotoInfo _photoInfo;
-		private PhotoDetailsViewModel _photoDetailsViewModel;
+		private PhotoDetailsViewModel _photoDetailsViewModel = ViewModelLocator.GetViewModel<PhotoDetailsViewModel>();
     
         public DetailPage (PhotoInfo item)
         {
             _photoInfo = item;
             InitializeComponent ();
             Title = item.Title;
-			_photoDetailsViewModel = new PhotoDetailsViewModel();
 			BindingContext = _photoDetailsViewModel;
         }
         
